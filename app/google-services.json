@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "26091066902",
+    "project_id": "firstproject-6bf8c",
+    "storage_bucket": "firstproject-6bf8c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:26091066902:android:dccd9794e50867ecf80737",
+        "android_client_info": {
+          "package_name": "com.thuan.login_register"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA2Fnu9QjXidEEAp6sg1C1R3lmjMOWTP0U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:26091066902:android:c343599c128cc6daf80737",
+        "android_client_info": {
+          "package_name": "com.thuan.myapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA2Fnu9QjXidEEAp6sg1C1R3lmjMOWTP0U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
