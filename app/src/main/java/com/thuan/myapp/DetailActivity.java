@@ -1,6 +1,9 @@
 package com.thuan.myapp;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.TabHost;
 
 import androidx.activity.EdgeToEdge;
@@ -41,4 +44,11 @@ public class DetailActivity extends AppCompatActivity {
         // Chọn Tab đầu tiên mặc định
         tabHost.setCurrentTab(0);
     }
+
+    public void EnterImageActivity(View view){
+        Intent intent = new Intent(DetailActivity.this, ImageInputActivity.class);
+        startActivity(intent);
+    }
+
+
 }

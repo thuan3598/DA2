@@ -14,6 +14,8 @@ import androidx.core.view.WindowInsetsCompat;
 public class HomePageActivity extends AppCompatActivity {
 
     CardView cvNew;
+    CardView cvAccount, cvMap;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +28,8 @@ public class HomePageActivity extends AppCompatActivity {
             return insets;
         });
         cvNew = findViewById(R.id.cvNew);
+//        cvAccount = findViewById(R.id.cvAccount);
+        cvMap = findViewById(R.id.cvMap);
         cvNew.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -33,6 +37,22 @@ public class HomePageActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        cvMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomePageActivity.this, MapActivity.class);
+                startActivity(intent);
+            }
+        });
+
+//        cvAccount.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(HomePageActivity.this, AccountActivity.class);
+//                startActivity(intent);
+//            }
+//        });
 
 
     }

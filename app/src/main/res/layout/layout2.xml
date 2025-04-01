@@ -41,7 +41,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="30sp"
                         android:fontFamily="sans-serif"
-                        android:text="Year Built:"
+                        android:text="Date:"
                         android:textColor="#2F47B1"
                         android:textColorHighlight="#3F51B5"
                         android:textSize="20sp"
@@ -52,7 +52,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:ems="10"
-                        android:hint="Enter year built"
+                        android:hint=""
                         android:inputType="number" />
 
                 </LinearLayout>
@@ -77,19 +77,34 @@
                         android:layout_width="wrap_content"
                         android:layout_height="30sp"
                         android:fontFamily="sans-serif"
-                        android:text="Location:"
+                        android:text="Water level at 7h(Upstream):"
                         android:textColor="#2F47B1"
                         android:textColorHighlight="#3F51B5"
                         android:textSize="20sp"
                         android:textStyle="bold" />
 
-                    <EditText
-                        android:id="@+id/edtLocation"
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:ems="10"
-                        android:hint="Enter location"
-                        android:inputType="text" />
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/edtLocation"
+                            android:layout_width="300dp"
+                            android:layout_height="50dp"
+                            android:ems="10"
+                            android:hint="Enter Water level at 7h(Upstream)"
+                            android:inputType="text" />
+
+                        <ImageView
+                            android:id="@+id/imageView4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            app:srcCompat="@drawable/camera"
+                            android:onClick="EnterImageActivity"/>
+
+                    </LinearLayout>
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -113,19 +128,32 @@
                         android:layout_width="wrap_content"
                         android:layout_height="30sp"
                         android:fontFamily="sans-serif"
-                        android:text="Gate Type:"
+                        android:text="Water level at 7h(Downstream):"
                         android:textColor="#2F47B1"
                         android:textColorHighlight="#3F51B5"
                         android:textSize="20sp"
                         android:textStyle="bold" />
 
-                    <EditText
-                        android:id="@+id/edtGateType"
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:ems="10"
-                        android:hint="Enter gate type"
-                        android:inputType="text" />
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/edtGateType"
+                            android:layout_width="300dp"
+                            android:layout_height="50dp"
+                            android:ems="10"
+                            android:hint="Enter Water level at 7h(Downstream)"
+                            android:inputType="text" />
+
+                        <ImageView
+                            android:id="@+id/imageView5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            app:srcCompat="@drawable/camera" />
+                    </LinearLayout>
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -149,19 +177,32 @@
                         android:layout_width="wrap_content"
                         android:layout_height="30sp"
                         android:fontFamily="sans-serif"
-                        android:text="Number of Gates:"
+                        android:text="Water level at 19h(Upstream):"
                         android:textColor="#2F47B1"
                         android:textColorHighlight="#3F51B5"
                         android:textSize="20sp"
                         android:textStyle="bold" />
 
-                    <EditText
-                        android:id="@+id/edtGateCount"
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:ems="10"
-                        android:hint="Enter number of gates"
-                        android:inputType="number" />
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/edtGateCount"
+                            android:layout_width="300dp"
+                            android:layout_height="50dp"
+                            android:ems="10"
+                            android:hint="Enter Water level at 19h(Upstream)"
+                            android:inputType="number" />
+
+                        <ImageView
+                            android:id="@+id/imageView6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            app:srcCompat="@drawable/camera" />
+                    </LinearLayout>
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -185,19 +226,32 @@
                         android:layout_width="wrap_content"
                         android:layout_height="30sp"
                         android:fontFamily="sans-serif"
-                        android:text="Gate Size:"
+                        android:text="Water level at 19h(Downstream):"
                         android:textColor="#2F47B1"
                         android:textColorHighlight="#3F51B5"
                         android:textSize="20sp"
                         android:textStyle="bold" />
 
-                    <EditText
-                        android:id="@+id/edtGateSize"
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:ems="10"
-                        android:hint="Enter gate size"
-                        android:inputType="number" />
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/edtGateSize"
+                            android:layout_width="300dp"
+                            android:layout_height="50dp"
+                            android:ems="10"
+                            android:hint="Enter Water level at 19h(Downstream)"
+                            android:inputType="number" />
+
+                        <ImageView
+                            android:id="@+id/imageView7"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            app:srcCompat="@drawable/camera" />
+                    </LinearLayout>
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -221,19 +275,32 @@
                         android:layout_width="wrap_content"
                         android:layout_height="30sp"
                         android:fontFamily="sans-serif"
-                        android:text="Designed Flow:"
+                        android:text="Suction tank at 7h:"
                         android:textColor="#2F47B1"
                         android:textColorHighlight="#3F51B5"
                         android:textSize="20sp"
                         android:textStyle="bold" />
 
-                    <EditText
-                        android:id="@+id/edtDesignedFlow"
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:ems="10"
-                        android:hint="Enter designed flow"
-                        android:inputType="text" />
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/edtDesignedFlow"
+                            android:layout_width="300dp"
+                            android:layout_height="50dp"
+                            android:ems="10"
+                            android:hint="Enter Suction tank at 7h"
+                            android:inputType="text" />
+
+                        <ImageView
+                            android:id="@+id/imageView8"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            app:srcCompat="@drawable/camera" />
+                    </LinearLayout>
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -257,19 +324,32 @@
                         android:layout_width="wrap_content"
                         android:layout_height="30sp"
                         android:fontFamily="sans-serif"
-                        android:text="Designed Water Level:"
+                        android:text="Discharge tank at 7h:"
                         android:textColor="#2F47B1"
                         android:textColorHighlight="#3F51B5"
                         android:textSize="20sp"
                         android:textStyle="bold" />
 
-                    <EditText
-                        android:id="@+id/edtDesignedWaterLevel"
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:ems="10"
-                        android:hint="Enter designed water level"
-                        android:inputType="number" />
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/edtDesignedWaterLevel"
+                            android:layout_width="300dp"
+                            android:layout_height="50dp"
+                            android:ems="10"
+                            android:hint="Enter discharge tank at 7h"
+                            android:inputType="number" />
+
+                        <ImageView
+                            android:id="@+id/imageView9"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            app:srcCompat="@drawable/camera" />
+                    </LinearLayout>
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -293,19 +373,32 @@
                         android:layout_width="wrap_content"
                         android:layout_height="30sp"
                         android:fontFamily="sans-serif"
-                        android:text="Bottom Elevation:"
+                        android:text="Suction tank at 19h:"
                         android:textColor="#2F47B1"
                         android:textColorHighlight="#3F51B5"
                         android:textSize="20sp"
                         android:textStyle="bold" />
 
-                    <EditText
-                        android:id="@+id/edtBottomElevation"
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:ems="10"
-                        android:hint="Enter designed flow"
-                        android:inputType="text" />
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/edtBottomElevation"
+                            android:layout_width="300dp"
+                            android:layout_height="50dp"
+                            android:ems="10"
+                            android:hint="Enter Suction tank at 19h"
+                            android:inputType="text" />
+
+                        <ImageView
+                            android:id="@+id/imageView10"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            app:srcCompat="@drawable/camera" />
+                    </LinearLayout>
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -329,18 +422,241 @@
                         android:layout_width="wrap_content"
                         android:layout_height="30sp"
                         android:fontFamily="sans-serif"
-                        android:text="Water Gauge Type:"
+                        android:text="Discharge tank at 19h:"
+                        android:textColor="#2F47B1"
+                        android:textColorHighlight="#3F51B5"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/edtWaterGaugeType"
+                            android:layout_width="300dp"
+                            android:layout_height="50dp"
+                            android:ems="10"
+                            android:hint="Enter Discharge tank at 19h"
+                            android:inputType="text" />
+
+                        <ImageView
+                            android:id="@+id/imageView11"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            app:srcCompat="@drawable/camera" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="16dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="8dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:id="@+id/textView16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30sp"
+                        android:fontFamily="sans-serif"
+                        android:text="Average water level today:"
                         android:textColor="#2F47B1"
                         android:textColorHighlight="#3F51B5"
                         android:textSize="20sp"
                         android:textStyle="bold" />
 
                     <EditText
-                        android:id="@+id/edtWaterGaugeType"
+                        android:id="@+id/edtAveWaterLevel"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:ems="10"
-                        android:hint="Enter designed flow"
+                        android:hint="Enter Average water level today"
+                        android:inputType="text" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="16dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="8dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:id="@+id/textView17"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30sp"
+                        android:fontFamily="sans-serif"
+                        android:text="Opened gate height:"
+                        android:textColor="#2F47B1"
+                        android:textColorHighlight="#3F51B5"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/edtOpenedGateHeight"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:ems="10"
+                        android:hint="Enter Opened gate height"
+                        android:inputType="text" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="16dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="8dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:id="@+id/textView18"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30sp"
+                        android:fontFamily="sans-serif"
+                        android:text="Opened gate count:"
+                        android:textColor="#2F47B1"
+                        android:textColorHighlight="#3F51B5"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/edtOpenedGateCount"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:ems="10"
+                        android:hint="Enter Opened gate count"
+                        android:inputType="text" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="16dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="8dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:id="@+id/textView19"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30sp"
+                        android:fontFamily="sans-serif"
+                        android:text="Water flow:"
+                        android:textColor="#2F47B1"
+                        android:textColorHighlight="#3F51B5"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/edtWaterFlow"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:ems="10"
+                        android:hint="Enter water flow"
+                        android:inputType="text" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="16dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="8dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:id="@+id/textView20"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30sp"
+                        android:fontFamily="sans-serif"
+                        android:text="Note:"
+                        android:textColor="#2F47B1"
+                        android:textColorHighlight="#3F51B5"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/edtNote"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:ems="10"
+                        android:hint="Enter note"
+                        android:inputType="text" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="16dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="8dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:id="@+id/textView21"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30sp"
+                        android:fontFamily="sans-serif"
+                        android:text="Pump operation status:"
+                        android:textColor="#2F47B1"
+                        android:textColorHighlight="#3F51B5"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/edtPumpOperationStatus"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:ems="10"
+                        android:hint="Enter Pump operation status"
                         android:inputType="text" />
 
                 </LinearLayout>
