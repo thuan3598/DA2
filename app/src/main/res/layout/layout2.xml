@@ -48,12 +48,12 @@
                         android:textStyle="bold" />
 
                     <EditText
-                        android:id="@+id/edtYear_built"
+                        android:id="@+id/edtDate"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:ems="10"
-                        android:hint=""
-                        android:inputType="number" />
+                        android:hint="Enter date"
+                        android:inputType="text" />
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -64,7 +64,8 @@
                 android:layout_marginBottom="16dp"
                 app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="12dp"
-                app:cardElevation="8dp">
+                app:cardElevation="8dp"
+                android:id="@+id/cvWater_level_7h_tl">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -89,7 +90,7 @@
                         android:orientation="horizontal">
 
                         <EditText
-                            android:id="@+id/edtLocation"
+                            android:id="@+id/edtWater_level_7h_tl"
                             android:layout_width="300dp"
                             android:layout_height="50dp"
                             android:ems="10"
@@ -115,7 +116,9 @@
                 android:layout_marginBottom="16dp"
                 app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="12dp"
-                app:cardElevation="8dp">
+                app:cardElevation="8dp"
+                android:id="@+id/cvWater_level_7h_hl">
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -140,7 +143,7 @@
                         android:orientation="horizontal">
 
                         <EditText
-                            android:id="@+id/edtGateType"
+                            android:id="@+id/edtWater_level_7h_hl"
                             android:layout_width="300dp"
                             android:layout_height="50dp"
                             android:ems="10"
@@ -164,7 +167,8 @@
                 android:layout_marginBottom="16dp"
                 app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="12dp"
-                app:cardElevation="8dp">
+                app:cardElevation="8dp"
+                android:id="@+id/cvWater_level_19h_tl">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -189,7 +193,7 @@
                         android:orientation="horizontal">
 
                         <EditText
-                            android:id="@+id/edtGateCount"
+                            android:id="@+id/edtWater_level_19h_tl"
                             android:layout_width="300dp"
                             android:layout_height="50dp"
                             android:ems="10"
@@ -213,7 +217,8 @@
                 android:layout_marginBottom="16dp"
                 app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="12dp"
-                app:cardElevation="8dp">
+                app:cardElevation="8dp"
+                android:id="@+id/cvWater_level_19h_hl">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -238,7 +243,7 @@
                         android:orientation="horizontal">
 
                         <EditText
-                            android:id="@+id/edtGateSize"
+                            android:id="@+id/edtWater_level_19h_hl"
                             android:layout_width="300dp"
                             android:layout_height="50dp"
                             android:ems="10"
@@ -262,7 +267,8 @@
                 android:layout_marginBottom="16dp"
                 app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="12dp"
-                app:cardElevation="8dp">
+                app:cardElevation="8dp"
+                android:id="@+id/cvSuction_tank_7h">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -287,7 +293,7 @@
                         android:orientation="horizontal">
 
                         <EditText
-                            android:id="@+id/edtDesignedFlow"
+                            android:id="@+id/edtSuction_tank_7h"
                             android:layout_width="300dp"
                             android:layout_height="50dp"
                             android:ems="10"
@@ -311,7 +317,8 @@
                 android:layout_marginBottom="16dp"
                 app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="12dp"
-                app:cardElevation="8dp">
+                app:cardElevation="8dp"
+                android:id="@+id/cvDischarge_tank_7h">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -336,7 +343,7 @@
                         android:orientation="horizontal">
 
                         <EditText
-                            android:id="@+id/edtDesignedWaterLevel"
+                            android:id="@+id/edtDischarge_tank_7h"
                             android:layout_width="300dp"
                             android:layout_height="50dp"
                             android:ems="10"
@@ -360,7 +367,8 @@
                 android:layout_marginBottom="16dp"
                 app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="12dp"
-                app:cardElevation="8dp">
+                app:cardElevation="8dp"
+                android:id="@+id/cvSuction_tank_19h">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -385,7 +393,7 @@
                         android:orientation="horizontal">
 
                         <EditText
-                            android:id="@+id/edtBottomElevation"
+                            android:id="@+id/edtSuction_tank_19h"
                             android:layout_width="300dp"
                             android:layout_height="50dp"
                             android:ems="10"
@@ -409,7 +417,8 @@
                 android:layout_marginBottom="16dp"
                 app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="12dp"
-                app:cardElevation="8dp">
+                app:cardElevation="8dp"
+                android:id="@+id/cvDischarge_tank_19h">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -434,7 +443,7 @@
                         android:orientation="horizontal">
 
                         <EditText
-                            android:id="@+id/edtWaterGaugeType"
+                            android:id="@+id/edtDischarge_tank_19h"
                             android:layout_width="300dp"
                             android:layout_height="50dp"
                             android:ems="10"
@@ -457,7 +466,8 @@
                 android:layout_marginBottom="16dp"
                 app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="12dp"
-                app:cardElevation="8dp">
+                app:cardElevation="8dp"
+                android:id="@+id/cvAvg_water_level">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -477,7 +487,7 @@
                         android:textStyle="bold" />
 
                     <EditText
-                        android:id="@+id/edtAveWaterLevel"
+                        android:id="@+id/edtAvg_water_level"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:ems="10"
@@ -492,7 +502,8 @@
                 android:layout_marginBottom="16dp"
                 app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="12dp"
-                app:cardElevation="8dp">
+                app:cardElevation="8dp"
+                android:id="@+id/cvGate_open_height">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -512,7 +523,7 @@
                         android:textStyle="bold" />
 
                     <EditText
-                        android:id="@+id/edtOpenedGateHeight"
+                        android:id="@+id/edtGate_open_height"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:ems="10"
@@ -527,7 +538,8 @@
                 android:layout_marginBottom="16dp"
                 app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="12dp"
-                app:cardElevation="8dp">
+                app:cardElevation="8dp"
+                android:id="@+id/cvOpened_gate_count">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -547,7 +559,7 @@
                         android:textStyle="bold" />
 
                     <EditText
-                        android:id="@+id/edtOpenedGateCount"
+                        android:id="@+id/edtOpened_gate_count"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:ems="10"
@@ -562,7 +574,8 @@
                 android:layout_marginBottom="16dp"
                 app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="12dp"
-                app:cardElevation="8dp">
+                app:cardElevation="8dp"
+                android:id="@+id/cvWaterFlow">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -597,7 +610,8 @@
                 android:layout_marginBottom="16dp"
                 app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="12dp"
-                app:cardElevation="8dp">
+                app:cardElevation="8dp"
+                android:id="@+id/cvNote">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -626,13 +640,15 @@
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
+
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="16dp"
                 app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="12dp"
-                app:cardElevation="8dp">
+                app:cardElevation="8dp"
+                android:id="@+id/cvPumpOperationStatus">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -661,6 +677,32 @@
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:backgroundTint="#03A9F4"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnSave"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:backgroundTint="#03A9F4"
+                    android:text="Save"
+                    app:rippleColor="#3F51B5" />
+
+                <Button
+                    android:id="@+id/btnDelete"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:backgroundTint="#03A9F4"
+                    android:text="Delete"
+                    app:rippleColor="#3F51B5" />
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 

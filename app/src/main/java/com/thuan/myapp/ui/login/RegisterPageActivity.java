@@ -1,4 +1,4 @@
-package com.thuan.myapp;
+package com.thuan.myapp.ui.login;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,6 +20,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.thuan.myapp.R;
 
 public class RegisterPageActivity extends AppCompatActivity {
     TextInputEditText editTextEmail, editTextPassword;

@@ -8,7 +8,7 @@
     android:background="@drawable/screen"
     android:orientation="vertical"
     android:padding="40dp"
-    tools:context=".RegisterPageActivity">
+    tools:context=".ui.login.RegisterPageActivity">
 
     <TextView
         android:id="@+id/text"

@@ -40,7 +40,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="30sp"
                         android:fontFamily="sans-serif"
-                        android:text="Project Name:"
+                        android:text="Construction Name:"
                         android:textColor="#2F47B1"
                         android:textColorHighlight="#3F51B5"
                         android:textSize="20sp"
@@ -51,7 +51,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:ems="10"
-                        android:hint="Enter project name"
+                        android:hint="Enter constuction name"
                         android:inputType="text" />
 
                 </LinearLayout>
@@ -339,7 +339,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:ems="10"
-                        android:hint="Enter designed flow"
+                        android:hint="Enter bottom elevation"
                         android:inputType="text" />
 
                 </LinearLayout>
@@ -375,11 +375,47 @@
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:ems="10"
-                        android:hint="Enter designed flow"
+                        android:hint="Enter water gauge type"
                         android:inputType="text" />
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:backgroundTint="#03A9F4"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnCreate1"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#03A9F4"
+                    android:text="Create"
+                    app:rippleColor="#3F51B5" />
+
+                <Button
+                    android:id="@+id/btnUpdate1"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:backgroundTint="#03A9F4"
+                    android:text="Update"
+                    app:rippleColor="#3F51B5" />
+
+                <Button
+                    android:id="@+id/btnDelete1"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#03A9F4"
+                    android:text="Delete"
+                    app:rippleColor="#3F51B5" />
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 

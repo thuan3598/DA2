@@ -1,4 +1,4 @@
-package com.thuan.myapp;
+package com.thuan.myapp.ai;
 
 import android.graphics.RectF;
 
