@@ -29,6 +29,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.thuan.myapp.data.model.Construction;
+import com.thuan.myapp.ui.dashboard.AccountActivity;
 import com.thuan.myapp.ui.dashboard.DetailActivity;
 import com.thuan.myapp.ui.dashboard.ExportActivity;
 import com.thuan.myapp.ui.dashboard.MapActivity;
@@ -55,10 +56,11 @@ public class HomePageActivity extends AppCompatActivity {
         });
         loadConstructionFromFirebase();
         cvNew = findViewById(R.id.cvNew);
-//        cvAccount = findViewById(R.id.cvAccount);
+        cvAccount = findViewById(R.id.cvAccount);
         cvMap = findViewById(R.id.cvMap);
         cvStatistic = findViewById(R.id.cvStatistic);
         cvExportData = findViewById(R.id.cvExportData);
+
 
         cvNew.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -148,13 +150,13 @@ public class HomePageActivity extends AppCompatActivity {
             }
         });
 
-//        cvAccount.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(HomePageActivity.this, AccountActivity.class);
-//                startActivity(intent);
-//            }
-//        });
+        cvAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomePageActivity.this, AccountActivity.class);
+                startActivity(intent);
+            }
+        });
 
         cvStatistic.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -172,7 +174,13 @@ public class HomePageActivity extends AppCompatActivity {
             }
         });
 
-
+//        cvAccount.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(HomePageActivity.this, AccountActivity.class);
+//                startActivity(intent);
+//            }
+//        });
 
     }
 

@@ -1,12 +1,17 @@
 package com.thuan.myapp.ui.adapter;
 
 import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Filter;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.thuan.myapp.R;
 import com.thuan.myapp.data.model.Construction;
 
 import java.util.ArrayList;
@@ -27,7 +32,9 @@ public class ConstructionAdapter extends ArrayAdapter<Construction> {
 
     @Override
     public int getCount() {
-        return filteredList.size();
+
+            return filteredList.size();
+
     }
 
     @Nullable
@@ -73,4 +80,36 @@ public class ConstructionAdapter extends ArrayAdapter<Construction> {
             }
         };
     }
+
+//    @NonNull
+//    @Override
+//    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+//        return initView1(position, convertView, parent);
+//    }
+//
+//    @Override
+//    public View getDropDownView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+//        return initView1(position, convertView, parent);
+//    }
+//
+//    private View initView1(int position, View convertView, ViewGroup parent) {
+//        if (convertView == null) {
+//            convertView = LayoutInflater.from(getContext()).inflate(
+//                    R.layout.list_item, parent, false
+//            );
+//        }
+//
+//        AutoCompleteTextView autoConstruction1 = convertView.findViewById(R.id.AutoConstruction1);
+//        AutoCompleteTextView autoConstruction2 = convertView.findViewById(R.id.AutoConstruction2);
+//        AutoCompleteTextView autoConstruction3 = convertView.findViewById(R.id.AutoConstruction3);
+//
+//        Construction currentItem = getItem(position);
+//
+//        if(currentItem != null){
+//            autoConstruction1.setText(currentItem.getConstructionName());
+//            autoConstruction2.setText(currentItem.getConstructionName());
+//            autoConstruction3.setText(currentItem.getConstructionName());
+//        }
+//        return convertView;
+//    }
 }

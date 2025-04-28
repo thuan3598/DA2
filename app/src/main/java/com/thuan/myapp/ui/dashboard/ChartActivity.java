@@ -1,35 +1,27 @@
 package com.thuan.myapp.ui.dashboard;
 
-import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.icu.text.SimpleDateFormat;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-
+import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.components.Description;
+import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.components.YAxis;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.LineData;
+import com.github.mikephil.charting.data.LineDataSet;
+import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
 import com.thuan.myapp.R;
-import com.thuan.myapp.data.datasource.Callback.ConstructionLoadCallback;
 import com.thuan.myapp.data.datasource.Callback.DailyWaterLevelLoadCallback;
-import com.thuan.myapp.data.datasource.DAO.ConstructionDAO;
 import com.thuan.myapp.data.datasource.DAO.DailyWaterLevelDAO;
-import com.thuan.myapp.data.datasource.Impl.ConstructionDAOImpl;
 import com.thuan.myapp.data.datasource.Impl.DailyWaterLevelDAOImpl;
 import com.thuan.myapp.data.model.Construction;
 import com.thuan.myapp.data.model.DailyWaterLevel;
-import com.thuan.myapp.ui.adapter.ConstructionAdapter1;
-import com.thuan.myapp.ui.home.HomePageActivity;
 
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -40,167 +32,183 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
-public class StatisticActivity extends AppCompatActivity {
+public class ChartActivity extends AppCompatActivity {
 
-    AutoCompleteTextView autoConstruction;
-    EditText edtStartDate;
-    EditText edtEndDate;
-    AutoCompleteTextView autoType;
-    Button btnDrawChart;
-    String[] items = {"daily", "monthly", "yearly"};
-    ArrayAdapter<String> adapterItems;
-    private ConstructionAdapter1 adapter1;
-    private List<Construction> constructionList;
-    private ConstructionDAO constructionDAO;
+    private LineChart lineChart;
+    private Construction construction;
+    private List<DailyWaterLevel> waterLevelsList;
+    private String startDate;
+    private String endDate;
+    private String chartType;
 
-
-
-    private Construction selectedConstruction;
+    private DailyWaterLevelDAO dailyWaterLevelDAO;
     public static final String TYPE_DAILY = "daily";
     public static final String TYPE_MONTHLY = "monthly";
     public static final String TYPE_YEARLY = "yearly";
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_statistic);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
-        autoConstruction = findViewById(R.id.AutoConstruction);
-        edtEndDate = findViewById(R.id.edtEndDate);
-        edtStartDate = findViewById(R.id.edtStartDate);
-        autoType = findViewById(R.id.AutoType);
-        btnDrawChart = findViewById(R.id.btnDrawChart);
+        setContentView(R.layout.activity_chart);
+        waterLevelsList = new ArrayList<>();
+        loadDailyWaterLevels();
 
-        constructionDAO = new ConstructionDAOImpl();
-        constructionList = new ArrayList<>();
-        loadConstruction();
+        // Nhận dữ liệu từ Intent
+        Intent intent = getIntent();
+        construction = (Construction) intent.getSerializableExtra("construction");
+        startDate = intent.getStringExtra("startDate");
+        endDate = intent.getStringExtra("endDate");
+        chartType = intent.getStringExtra("chartType");
 
-
-        adapterItems = new ArrayAdapter<>(this, R.layout.list_item, items);
-        adapter1 = new ConstructionAdapter1(this, android.R.layout.simple_dropdown_item_1line, constructionList);
-        autoConstruction.setAdapter(adapter1);
-        autoType.setAdapter(adapterItems);
-        btnDrawChart = findViewById(R.id.btnDrawChart);
-
-        edtEndDate.setOnClickListener(v -> {
-            Calendar calendar = Calendar.getInstance();
-            int year = calendar.get(Calendar.YEAR);
-            int month = calendar.get(Calendar.MONTH);
-            int day = calendar.get(Calendar.DAY_OF_MONTH);
-
-            DatePickerDialog datePickerDialog = new DatePickerDialog(
-                    StatisticActivity.this,
-                    (view1, selectedYear, selectedMonth, selectedDay) -> {
-                        String selectedDate = selectedDay + "/" + (selectedMonth + 1) + "/" + selectedYear;
-                        edtEndDate.setText(selectedDate);
-                    },
-                    year, month, day);
-            datePickerDialog.show();
-        });
-
-        edtStartDate.setOnClickListener(v -> {
-            Calendar calendar = Calendar.getInstance();
-            int year = calendar.get(Calendar.YEAR);
-            int month = calendar.get(Calendar.MONTH);
-            int day = calendar.get(Calendar.DAY_OF_MONTH);
-
-            DatePickerDialog datePickerDialog = new DatePickerDialog(
-                    StatisticActivity.this,
-                    (view1, selectedYear, selectedMonth, selectedDay) -> {
-                        String selectedDate = selectedDay + "/" + (selectedMonth + 1) + "/" + selectedYear;
-                        edtStartDate.setText(selectedDate);
-                    },
-                    year, month, day);
-            datePickerDialog.show();
-        });
-
-
-
-
-        autoType.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String item = adapterView.getItemAtPosition(i).toString();
-                Toast.makeText(StatisticActivity.this, "Selected:" + item, Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        autoConstruction.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Construction item = (Construction) adapterView.getItemAtPosition(i);
-                selectedConstruction = item;
-                Toast.makeText(StatisticActivity.this, "Selected:" + item.getConstructionName(), Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        btnDrawChart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-//                try {
-//                    Map<String, Object> dailyStats = getWaterLevelStatistics(
-//                            selectedConstruction,
-//                            dailyWaterLevelsList,
-//                            edtStartDate.getText().toString(),
-//                            edtEndDate.getText().toString(),
-//                            TYPE_DAILY);
-//
-//
-//
-//                    // Xử lý kết quả
-//                    List<Double> dailyAverages = (List<Double>) dailyStats.get("averages");
-//                    List<Double> dailyMax = (List<Double>) dailyStats.get("max");
-//                    List<Double> dailyMin = (List<Double>) dailyStats.get("min");
-//
-//                    Log.d("DailyStats", "Daily Averages: " + dailyAverages);
-//                    Log.d("DailyStats", "Daily Max: " + dailyMax);
-//                    Log.d("DailyStats", "Daily Min: " + dailyMin);
-//
-//                    // Tương tự với monthlyStats và yearlyStats
-//                } catch (IllegalArgumentException e) {
-//                    e.printStackTrace();
-//                    // Xử lý lỗi nếu ngày không hợp lệ
-//                }
-
-                Intent intent = new Intent(StatisticActivity.this, ChartActivity.class);
-                intent.putExtra("construction", selectedConstruction); // Construction được chọn
-                intent.putExtra("startDate", edtStartDate.getText().toString()); // Ngày bắt đầu
-                intent.putExtra("endDate", edtEndDate.getText().toString()); // Ngày kết thúc
-                intent.putExtra("chartType", autoType.getText().toString()); // Loại biểu đồ
-                startActivity(intent);
-
-            }
-        });
+        lineChart = findViewById(R.id.chart);
 
     }
 
+    private void setupChart() {
+        Description description = new Description();
+        description.setText("Biểu đồ mực nước - " + chartType);
+        description.setPosition(150f, 15f);
+        lineChart.setDescription(description);
+        lineChart.getAxisRight().setDrawLabels(false);
 
+        XAxis xAxis = lineChart.getXAxis();
+        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+        xAxis.setGranularity(1f);
+        xAxis.setLabelRotationAngle(-45);
 
-    private void loadConstruction() {
+        YAxis yAxis = lineChart.getAxisLeft();
+        yAxis.setAxisLineWidth(2f);
+        yAxis.setAxisLineColor(Color.BLACK);
+    }
 
-        constructionDAO.loadListConstruction(new ConstructionLoadCallback() {
+    private void drawChart() {
+        Map<String, Object> stats = getWaterLevelStatistics(
+                construction, waterLevelsList, startDate, endDate, chartType);
+
+        List<Double> averages = (List<Double>) stats.get("averages");
+        List<Double> maxValues = (List<Double>) stats.get("max");
+        List<Double> minValues = (List<Double>) stats.get("min");
+
+        // Tạo danh sách nhãn trục X
+        List<String> xLabels = generateXLabels();
+
+        XAxis xAxis = lineChart.getXAxis();
+        xAxis.setValueFormatter(new IndexAxisValueFormatter(xLabels));
+        xAxis.setLabelCount(xLabels.size(), true);
+
+        // Tạo dữ liệu cho đồ thị
+        List<Entry> avgEntries = new ArrayList<>();
+        List<Entry> maxEntries = new ArrayList<>();
+        List<Entry> minEntries = new ArrayList<>();
+
+        for (int i = 0; i < averages.size(); i++) {
+            avgEntries.add(new Entry(i, averages.get(i).floatValue()));
+            maxEntries.add(new Entry(i, maxValues.get(i).floatValue()));
+            minEntries.add(new Entry(i, minValues.get(i).floatValue()));
+        }
+
+        // Tạo dataset
+        LineDataSet avgDataSet = new LineDataSet(avgEntries, "Mực nước trung bình");
+        avgDataSet.setColor(Color.BLUE);
+        avgDataSet.setCircleColor(Color.BLUE);
+        avgDataSet.setLineWidth(2f);
+        avgDataSet.setCircleRadius(4f);
+
+        LineDataSet maxDataSet = new LineDataSet(maxEntries, "Mực nước cao nhất");
+        maxDataSet.setColor(Color.RED);
+        maxDataSet.setCircleColor(Color.RED);
+        maxDataSet.setLineWidth(2f);
+        maxDataSet.setCircleRadius(4f);
+
+        LineDataSet minDataSet = new LineDataSet(minEntries, "Mực nước thấp nhất");
+        minDataSet.setColor(Color.GREEN);
+        minDataSet.setCircleColor(Color.GREEN);
+        minDataSet.setLineWidth(2f);
+        minDataSet.setCircleRadius(4f);
+
+        // Kết hợp tất cả dataset
+        LineData lineData = new LineData(avgDataSet, maxDataSet, minDataSet);
+        lineChart.setData(lineData);
+
+        // Tự động điều chỉnh trục Y
+        lineChart.getAxisLeft().resetAxisMinimum();
+        lineChart.getAxisLeft().resetAxisMaximum();
+
+        lineChart.invalidate();
+        lineChart.animateY(1000);
+    }
+
+    private void loadDailyWaterLevels() {
+        dailyWaterLevelDAO = new DailyWaterLevelDAOImpl();
+        dailyWaterLevelDAO.loadListDailyWaterLevel(new DailyWaterLevelLoadCallback() {
 
             @Override
-            public void onConstructionsLoaded(List<Construction> constructions) {
-                constructionList.clear();
-                constructionList.addAll(constructions);
-                adapter1.notifyDataSetChanged();
+            public void onDailyWaterLevelsLoaded(List<DailyWaterLevel> DailyWaterLevels) {
+                waterLevelsList.clear();
+                waterLevelsList.addAll(DailyWaterLevels);
+
+                Log.d("DailyWaterLevelDAO", waterLevelsList.toString());
+                setupChart();
+                drawChart();
+
 
             }
-
             @Override
             public void onError(String errorMessage) {
-                Toast.makeText(StatisticActivity.this, errorMessage, Toast.LENGTH_SHORT).show();
+                Toast.makeText(ChartActivity.this, errorMessage, Toast.LENGTH_SHORT).show();
             }
         });
-
     }
+
+    private List<String> generateXLabels() {
+        List<String> labels = new ArrayList<>();
+
+        try {
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+            Date start = sdf.parse(startDate);
+            Date end = sdf.parse(endDate);
+
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(start);
+
+            switch (chartType) {
+                case TYPE_DAILY:
+                    SimpleDateFormat dayFormat = new SimpleDateFormat("dd/MM", Locale.getDefault());
+                    while (!calendar.getTime().after(end)) {
+                        labels.add(dayFormat.format(calendar.getTime()));
+                        calendar.add(Calendar.DAY_OF_MONTH, 1);
+                    }
+                    break;
+
+                case TYPE_MONTHLY:
+                    SimpleDateFormat monthFormat = new SimpleDateFormat("MM/yyyy", Locale.getDefault());
+                    while (!calendar.getTime().after(end)) {
+                        labels.add(monthFormat.format(calendar.getTime()));
+                        calendar.add(Calendar.MONTH, 1);
+                    }
+                    break;
+
+                case TYPE_YEARLY:
+                    SimpleDateFormat yearFormat = new SimpleDateFormat("yyyy", Locale.getDefault());
+                    while (!calendar.getTime().after(end)) {
+                        labels.add(yearFormat.format(calendar.getTime()));
+                        calendar.add(Calendar.YEAR, 1);
+                    }
+                    break;
+            }
+        } catch (ParseException e) {
+            e.printStackTrace();
+            // Nếu có lỗi, tạo nhãn đơn giản theo số thứ tự
+//            int size = ((List<Double>) stats.get("averages")).size();
+//            for (int i = 0; i < size; i++) {
+//                labels.add(String.valueOf(i + 1));
+//            }
+        }
+
+        return labels;
+    }
+
+
 
 
     public static Map<String, Object> getWaterLevelStatistics(
@@ -459,5 +467,3 @@ public class StatisticActivity extends AppCompatActivity {
         return minValues;
     }
 }
-
-

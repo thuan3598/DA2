@@ -60,7 +60,8 @@ dependencies {
     implementation ("com.rmtheis:tess-two:9.1.0")
     implementation ("com.quickbirdstudios:opencv:4.5.3.0")
 
-
-
+    implementation ("de.hdodenhof:circleimageview:3.1.0")
+    implementation("androidx.recyclerview:recyclerview:1.4.0")
+    implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
 
 }

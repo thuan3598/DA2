@@ -1,6 +1,8 @@
 package com.thuan.myapp.data.model;
 
-public class DailyWaterLevel {
+import java.io.Serializable;
+
+public class DailyWaterLevel implements Serializable {
 
     private String id;
     private String constructionId; // Tham chiếu tới Construction
