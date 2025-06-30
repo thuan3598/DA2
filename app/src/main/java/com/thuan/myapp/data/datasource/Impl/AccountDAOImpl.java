@@ -8,9 +8,11 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.thuan.myapp.data.datasource.Callback.AccountLoadCallback;
 import com.thuan.myapp.data.datasource.Callback.AccountOperationCallback;
+import com.thuan.myapp.data.datasource.Callback.SingleAccountLoadCallback;
 import com.thuan.myapp.data.datasource.DAO.AccountDAO;
 import com.thuan.myapp.data.model.Account;
 
@@ -93,5 +95,31 @@ public class AccountDAOImpl implements AccountDAO {
                     Log.e("AccountDAO", "Delete failed: " + e.getMessage());
                     callback.onError("Failed to delete account: " + e.getMessage());
                 });
+    }
+
+    @Override
+    public void getAccountByEmail(String email, SingleAccountLoadCallback callback) {
+        Query query = accountsRef.orderByChild("email").equalTo(email);
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    for (DataSnapshot childSnapshot : snapshot.getChildren()) {
+                        Account account = childSnapshot.getValue(Account.class);
+                        if (account != null) {
+                            account.setId(childSnapshot.getKey()); // Gán ID của node
+                            callback.onAccountLoaded(account);
+                            return; // Chỉ cần tìm thấy một tài khoản là đủ
+                        }
+                    }
+                }
+                callback.onAccountLoaded(null); // Không tìm thấy tài khoản
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                callback.onError("Failed to get account by email: " + error.getMessage());
+            }
+        });
     }
 }

@@ -6,14 +6,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.dashboard.StatisticActivity"
-    android:orientation="vertical">
-
-    <!--    Constrution 1-->
+    android:orientation="vertical"
+    >
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:hint="Select construction"
+        android:layout_marginTop="60dp" android:layout_marginStart="16dp" android:layout_marginEnd="16dp"   android:hint="@string/select_construction"
         app:hintTextColor="@color/black"
         app:boxStrokeColor="@color/black"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
@@ -24,9 +22,6 @@
             android:layout_height="wrap_content"
             android:inputType="none"/>
     </com.google.android.material.textfield.TextInputLayout>
-
-
-
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -39,10 +34,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginEnd="8dp"
-            android:hint="Start Date"
+            android:hint="@string/start_date"
             app:hintTextColor="@color/black"
             app:boxStrokeColor="@color/black"
-
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <EditText
@@ -57,7 +51,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginStart="8dp"
-            android:hint="End Date"
+            android:hint="@string/end_date"
             app:hintTextColor="@color/black"
             app:boxStrokeColor="@color/black"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
@@ -75,7 +69,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:hint="Select type"
+        android:hint="@string/select_type"
         app:hintTextColor="@color/black"
         app:boxStrokeColor="@color/black"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
@@ -94,15 +88,13 @@
         android:gravity="center"
         android:orientation="horizontal">
 
-
-
         <Button
             android:id="@+id/btnDrawChart"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:backgroundTint="#03A9F4"
-            android:text="Draw chart"
+            android:text="@string/draw_chart"
             app:rippleColor="#3F51B5" />
     </LinearLayout>
 

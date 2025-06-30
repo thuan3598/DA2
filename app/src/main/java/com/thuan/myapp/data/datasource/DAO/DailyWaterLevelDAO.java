@@ -5,4 +5,5 @@ import com.thuan.myapp.data.datasource.Callback.DailyWaterLevelLoadCallback;
 
 public interface DailyWaterLevelDAO {
     void loadListDailyWaterLevel(DailyWaterLevelLoadCallback callback);
+    void loadDailyWaterLevelById(String id, DailyWaterLevelLoadCallback callback);
 }

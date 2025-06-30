@@ -7,42 +7,31 @@ public class DailyWaterLevel implements Serializable {
     private String id;
     private String constructionId; // Tham chiếu tới Construction
     private String date;
-    private Double waterLevel7hHl;
-    private Double waterLevel19hHl;
-    private Double waterLevel7hTl;
-    private Double waterLevel19hTl;
-    private Double suctionTank7h;
-    private Double suctionTank19h;
-    private Double dischargeTank7h;
-    private Double dischargeTank19h;
+    private Double waterLevel7h;
+    private Double waterLevel19h;
+
     private Double avgWaterLevel;
     private Double gateOpenHeight;
     private Integer openedGateCount;
     private Double waterFlow;
     private String notes;
-    private String pumpOperationStatus;
+
     private String recorderId;     // Tham chiếu tới Account
 
     public DailyWaterLevel() {}
 
-    public DailyWaterLevel(String id, String constructionId, String date, Double waterLevel7hHl, Double waterLevel19hHl, Double waterLevel7hTl, Double waterLevel19hTl, Double suctionTank7h, Double suctionTank19h, Double dischargeTank7h, Double dischargeTank19h, Double avgWaterLevel, Double gateOpenHeight, Integer openedGateCount, Double waterFlow, String notes, String pumpOperationStatus, String recorderId) {
+    public DailyWaterLevel(String id, String constructionId, String date, Double waterLevel7h, Double waterLevel19h, Double avgWaterLevel, Double gateOpenHeight, Integer openedGateCount, Double waterFlow, String notes, String recorderId) {
         this.id = id;
         this.constructionId = constructionId;
         this.date = date;
-        this.waterLevel7hHl = waterLevel7hHl;
-        this.waterLevel19hHl = waterLevel19hHl;
-        this.waterLevel7hTl = waterLevel7hTl;
-        this.waterLevel19hTl = waterLevel19hTl;
-        this.suctionTank7h = suctionTank7h;
-        this.suctionTank19h = suctionTank19h;
-        this.dischargeTank7h = dischargeTank7h;
-        this.dischargeTank19h = dischargeTank19h;
+        this.waterLevel7h = waterLevel7h;
+        this.waterLevel19h = waterLevel19h;
         this.avgWaterLevel = avgWaterLevel;
         this.gateOpenHeight = gateOpenHeight;
         this.openedGateCount = openedGateCount;
         this.waterFlow = waterFlow;
         this.notes = notes;
-        this.pumpOperationStatus = pumpOperationStatus;
+
         this.recorderId = recorderId;
     }
 
@@ -70,68 +59,20 @@ public class DailyWaterLevel implements Serializable {
         this.date = date;
     }
 
-    public Double getWaterLevel7hHl() {
-        return waterLevel7hHl;
+    public Double getWaterLevel7h() {
+        return waterLevel7h;
     }
 
-    public void setWaterLevel7hHl(Double waterLevel7hHl) {
-        this.waterLevel7hHl = waterLevel7hHl;
+    public void setWaterLevel7h(Double waterLevel7h) {
+        this.waterLevel7h = waterLevel7h;
     }
 
-    public Double getWaterLevel19hHl() {
-        return waterLevel19hHl;
+    public Double getWaterLevel19h() {
+        return waterLevel19h;
     }
 
-    public void setWaterLevel19hHl(Double waterLevel19hHl) {
-        this.waterLevel19hHl = waterLevel19hHl;
-    }
-
-    public Double getWaterLevel7hTl() {
-        return waterLevel7hTl;
-    }
-
-    public void setWaterLevel7hTl(Double waterLevel7hTl) {
-        this.waterLevel7hTl = waterLevel7hTl;
-    }
-
-    public Double getWaterLevel19hTl() {
-        return waterLevel19hTl;
-    }
-
-    public void setWaterLevel19hTl(Double waterLevel19hTl) {
-        this.waterLevel19hTl = waterLevel19hTl;
-    }
-
-    public Double getSuctionTank7h() {
-        return suctionTank7h;
-    }
-
-    public void setSuctionTank7h(Double suctionTank7h) {
-        this.suctionTank7h = suctionTank7h;
-    }
-
-    public Double getSuctionTank19h() {
-        return suctionTank19h;
-    }
-
-    public void setSuctionTank19h(Double suctionTank19h) {
-        this.suctionTank19h = suctionTank19h;
-    }
-
-    public Double getDischargeTank7h() {
-        return dischargeTank7h;
-    }
-
-    public void setDischargeTank7h(Double dischargeTank7h) {
-        this.dischargeTank7h = dischargeTank7h;
-    }
-
-    public Double getDischargeTank19h() {
-        return dischargeTank19h;
-    }
-
-    public void setDischargeTank19h(Double dischargeTank19h) {
-        this.dischargeTank19h = dischargeTank19h;
+    public void setWaterLevel19h(Double waterLevel19h) {
+        this.waterLevel19h = waterLevel19h;
     }
 
     public Double getAvgWaterLevel() {
@@ -174,14 +115,6 @@ public class DailyWaterLevel implements Serializable {
         this.notes = notes;
     }
 
-    public String getPumpOperationStatus() {
-        return pumpOperationStatus;
-    }
-
-    public void setPumpOperationStatus(String pumpOperationStatus) {
-        this.pumpOperationStatus = pumpOperationStatus;
-    }
-
     public String getRecorderId() {
         return recorderId;
     }
@@ -196,20 +129,13 @@ public class DailyWaterLevel implements Serializable {
                 "id='" + id + '\'' +
                 ", constructionId='" + constructionId + '\'' +
                 ", date='" + date + '\'' +
-                ", waterLevel7hHl=" + waterLevel7hHl +
-                ", waterLevel19hHl=" + waterLevel19hHl +
-                ", waterLevel7hTl=" + waterLevel7hTl +
-                ", waterLevel19hTl=" + waterLevel19hTl +
-                ", suctionTank7h=" + suctionTank7h +
-                ", suctionTank9h=" + suctionTank19h +
-                ", dischargeTank7h=" + dischargeTank7h +
-                ", dischargeTank9h=" + dischargeTank19h +
+                ", waterLevel7hHl=" + waterLevel7h +
+                ", waterLevel19hHl=" + waterLevel19h+
                 ", avgWaterLevel=" + avgWaterLevel +
                 ", gateOpenHeight=" + gateOpenHeight +
                 ", openedGateCount=" + openedGateCount +
                 ", waterFlow=" + waterFlow +
                 ", notes='" + notes + '\'' +
-                ", pumpOperationStatus='" + pumpOperationStatus + '\'' +
                 ", recorderId='" + recorderId + '\'' +
                 '}';
     }

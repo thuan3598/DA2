@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">My App</string>
+    <string name="home">Home</string>
+    <string name="user">User</string>
+    <string name="help">Help</string>
+    <string name="change_theme">Change Theme</string>
+    <string name="change_language">Change Language</string>
+    <string name="logout">Logout</string>
+
+    // account  profile
+    <string name="profile_info">Personal Information</string>
+    <string name="user_name">User Name</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="email">Email</string>
+    <string name="new_password">New Password (Leave blank if not changing)</string>
+    <string name="password">Password</string>
+    <string name="date_of_birth">Date of Birth</string>
+    <string name="address">Address</string>
+    <string name="gender">Gender</string>
+    <string name="role">Role</string>
+    <string name="save_changes">Save Changes</string>
+    <string name="name_empty_error">Name cannot be empty</string>
+    <string name="password_length_error">New password must be at least 6 characters long</string>
+    <string name="profile_saved_success">Profile information saved successfully!</string>
+    <string name="profile_save_error">Error saving profile information: %s</string>
+    <string name="password_update_success">Password updated successfully.</string>
+    <string name="password_update_error">Password update error: %s</string>
+    <string name="recent_login_required">Please log in again to change password.</string>
+    <string name="no_user_logged_in">No user currently logged in.</string>
+    <string name="loading_account_error">Could not load account information.</string>
+    <string name="not_logged_in_error">You are not logged in or account information is unavailable.</string>
+    <string name="no_account_to_save">No account information to save.</string>
+    <string name="logged_out">Logged out!</string>
+    <string name="switched_to_light_mode">Switched to light mode</string>
+    <string name="switched_to_dark_mode">Switched to dark mode</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="other">Other</string>
+    <string name="action_search">Search</string>
+
+    // home page
+    <string name="menu_icon_description">Menu icon</string>
+    <string name="statistic">Statistic</string>
+    <string name="new_data">New Data</string>
+    <string name="edit_data">Edit Data</string>
+    <string name="map">Map</string>
+    <string name="export_data">Export Data</string>
+    <string name="account">Account</string>
+    //statistic
+    <string name="select_construction">Select construction</string>
+    <string name="start_date">Start Date</string>
+    <string name="end_date">End Date</string>
+    <string name="select_type">Select type</string>
+    <string name="draw_chart">Draw chart</string>
+    //export
+    <string name="month">Month</string>
+    <string name="year">Year</string>
+    <string name="select_time">Select Time</string>
+    <string name="export">Export</string>
+    <string name="export_data_title">EXPORT DATA</string>
+    // detail account
+    <string name="detail_account">Detail Account</string>
+
+    //detail
+    <string name="add_data">Add Data</string>
+
+    // image input
+    <string name="image_input">Image input</string>
+    <string name="upload_image">Upload Image</string>
+    <string name="predict">Predict</string>
+    <string name="done">Done</string>
+
+    // sign in
+    <string name="sign_in">Sign In</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="donnot_have_account">Do not have an account? </string>
+    <string name="hello">Hello, </string>"
+    <string name="already_have_account">Already have an account? </string>"
+
+    //logbook
+    <string name="confirm">Confirm</string>
+
+    // layout 1
+    <string name="construction_name_label">Construction Name:</string>
+    <string name="year_built_label">Year Built:</string>
+    <string name="location_label">Location:</string>
+    <string name="gate_type_label">Gate Type:</string>
+    <string name="number_of_gates_label">Number of Gates:</string>
+    <string name="gate_size_label">Gate Size:</string>
+    <string name="designed_flow_label">Designed Flow:</string>
+    <string name="designed_water_level_label">Designed Water Level:</string>
+    <string name="bottom_elevation_label">Bottom Elevation:</string>
+    <string name="water_gauge_type_label">Water Gauge Type:</string>
+
+    <string name="enter_construction_name_hint">Enter construction name</string>
+    <string name="enter_year_built_hint">Enter year built</string>
+    <string name="enter_location_hint">Enter location</string>
+    <string name="enter_gate_type_hint">Enter gate type</string>
+    <string name="enter_number_of_gates_hint">Enter number of gates</string>
+    <string name="enter_gate_size_hint">Enter gate size</string>
+    <string name="enter_designed_flow_hint">Enter designed flow</string>
+    <string name="enter_designed_water_level_hint">Enter designed water level</string>
+    <string name="enter_bottom_elevation_hint">Enter bottom elevation</string>
+    <string name="enter_water_gauge_type_hint">Enter water gauge type</string>
+
+    <string name="create_button">Create</string>
+    <string name="update_button">Update</string>
+    <string name="delete_button">Delete</string>
+
+    // layout 2
+    <string name="date_label">Date:</string>
+    <string name="water_level_7h_label">Water level at 7h:</string>
+    <string name="water_level_19h_label">Water level at 19h:</string>
+    <string name="avg_water_level_label">Average water level today:</string>
+    <string name="opened_gate_height_label">Opened gate height:</string>
+    <string name="opened_gate_count_label">Opened gate count:</string>
+    <string name="water_flow_label">Water flow:</string>
+    <string name="note_label">Note:</string>
+
+    <string name="enter_date_hint">Enter date</string>
+    <string name="enter_water_level_7h_hint">Enter Water level at 7h</string>
+    <string name="enter_water_level_19h_hint">Enter Water level at 19h</string>
+    <string name="enter_avg_water_level_hint">Enter Average water level today</string>
+    <string name="enter_opened_gate_height_hint">Enter Opened gate height</string>
+    <string name="enter_opened_gate_count_hint">Enter Opened gate count</string>
+    <string name="enter_water_flow_hint">Enter water flow</string>
+    <string name="enter_note_hint">Enter note</string>
+
+    <string name="save_button">Save</string>
+
+    // account detail
+    <string name="please_fill_in_require_fields_name_email_password">Please fill in all fields (Name, Email, Password)</string>
+
+
+</resources>

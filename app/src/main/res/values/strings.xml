@@ -1,5 +1,134 @@
 <resources>
     <string name="app_name">My App</string>
-    <string name="action_search">Search</string>
+    <string name="home">Trang chủ</string>
+    <string name="user">Người dùng</string>
+    <string name="help">Trợ giúp</string>
+    <string name="change_theme">Đổi giao diện</string>
+    <string name="change_language">Đổi ngôn ngữ</string>
+    <string name="logout">Đăng xuất</string>
 
+    // account  profile
+    <string name="profile_info">Thông tin cá nhân</string>
+    <string name="user_name">Tên người dùng</string>
+    <string name="phone_number">Số điện thoại</string>
+    <string name="email">Email</string>
+    <string name="new_password">Mật khẩu mới (Để trống nếu không đổi)</string>
+    <string name="password">Mật khẩu</string>
+    <string name="date_of_birth">Ngày sinh</string>
+    <string name="address">Địa chỉ</string>
+    <string name="gender">Giới tính</string>
+    <string name="role">Vai trò</string>
+    <string name="save_changes">Lưu thay đổi</string>
+    <string name="name_empty_error">Tên không được để trống</string>
+    <string name="password_length_error">Mật khẩu mới phải có ít nhất 6 ký tự</string>
+    <string name="profile_saved_success">Thông tin hồ sơ đã được lưu thành công!</string>
+    <string name="profile_save_error">Lỗi khi lưu thông tin hồ sơ: %s</string>
+    <string name="password_update_success">Cập nhật mật khẩu thành công.</string>
+    <string name="password_update_error">Lỗi cập nhật mật khẩu: %s</string>
+    <string name="recent_login_required">Vui lòng đăng nhập lại để thay đổi mật khẩu.</string>
+    <string name="no_user_logged_in">Không có người dùng nào đang đăng nhập.</string>
+    <string name="loading_account_error">Không thể tải thông tin tài khoản.</string>
+    <string name="not_logged_in_error">Bạn chưa đăng nhập hoặc thông tin tài khoản không có sẵn.</string>
+    <string name="no_account_to_save">Không có thông tin tài khoản để lưu.</string>
+    <string name="logged_out">Đã đăng xuất!</string>
+    <string name="switched_to_light_mode">Chuyển sang chế độ sáng</string>
+    <string name="switched_to_dark_mode">Chuyển sang chế độ tối</string>
+    <string name="male">Nam</string>
+    <string name="female">Nữ</string>
+    <string name="other">Khác</string>
+    <string name="action_search">Tìm kiếm</string>"
+
+    // home page
+    <string name="menu_icon_description">Biểu tượng Menu</string>
+    <string name="statistic">Thống kê</string>
+    <string name="new_data">Dữ liệu mới</string>
+    <string name="edit_data">Sửa dữ liệu</string>
+    <string name="map">Bản đồ</string>
+    <string name="export_data">Xuất dữ liệu</string>
+    <string name="account">Tài khoản</string>
+    //statistic
+    <string name="select_construction">Chọn công trình</string>
+    <string name="start_date">Ngày bắt đầu</string>
+    <string name="end_date">Ngày kết thúc</string>
+    <string name="select_type">Chọn loại</string>
+    <string name="draw_chart">Vẽ biểu đồ</string>
+    // export
+    <string name="month">Tháng</string>
+    <string name="year">Năm</string>
+    <string name="select_time">Chọn thời gian</string>
+    <string name="export">Xuất dữ liệu</string>
+    <string name="export_data_title">XUẤT DỮ LIỆU</string>
+
+    //Detail account
+    <string name="detail_account">Chi tiết tài khoản</string>
+
+    //detail
+    <string name="add_data">Thêm dữ liệu</string>
+
+    // image input
+    <string name="image_input">"Nhập ảnh chụp"</string>
+    <string name="upload_image">Tải ảnh lên</string>
+    <string name="predict">Dự đoán</string>
+    <string name="done">Xong</string>
+
+    // sign in
+    <string name="sign_in">Đăng nhập</string>
+    <string name="sign_up">Đăng ký</string>
+    <string name="donnot_have_account">Chưa có tài khoản? </string>
+    <string name="hello">Xin chào, </string>
+    <string name="already_have_account">Đã có tài khoản? </string>"
+
+    //logbook
+   <string name="confirm">Xác nhận</string>"
+
+    // layout1
+    <string name="construction_name_label">Tên công trình:</string>
+    <string name="year_built_label">Năm xây dựng:</string>
+    <string name="location_label">Vị trí:</string>
+    <string name="gate_type_label">Loại cổng:</string>
+    <string name="number_of_gates_label">Số lượng cổng:</string>
+    <string name="gate_size_label">Kích thước cổng:</string>
+    <string name="designed_flow_label">Lưu lượng thiết kế:</string>
+    <string name="designed_water_level_label">Mực nước thiết kế:</string>
+    <string name="bottom_elevation_label">Độ cao đáy:</string>
+    <string name="water_gauge_type_label">Loại đồng hồ nước:</string>
+
+    <string name="enter_construction_name_hint">Nhập tên công trình</string>
+    <string name="enter_year_built_hint">Nhập năm xây dựng</string>
+    <string name="enter_location_hint">Nhập vị trí</string>
+    <string name="enter_gate_type_hint">Nhập loại cổng</string>
+    <string name="enter_number_of_gates_hint">Nhập số lượng cổng</string>
+    <string name="enter_gate_size_hint">Nhập kích thước cổng</string>
+    <string name="enter_designed_flow_hint">Nhập lưu lượng thiết kế</string>
+    <string name="enter_designed_water_level_hint">Nhập mực nước thiết kế</string>
+    <string name="enter_bottom_elevation_hint">Nhập độ cao đáy</string>
+    <string name="enter_water_gauge_type_hint">Nhập loại thước đo</string>
+
+    <string name="create_button">Tạo</string>
+    <string name="update_button">Cập nhật</string>
+    <string name="delete_button">Xóa</string>
+
+    // layout 2
+    <string name="date_label">Ngày:</string>
+    <string name="water_level_7h_label">Mực nước lúc 7h:</string>
+    <string name="water_level_19h_label">Mực nước lúc 19h:</string>
+    <string name="avg_water_level_label">Mực nước trung bình hôm nay:</string>
+    <string name="opened_gate_height_label">Chiều cao cổng mở:</string>
+    <string name="opened_gate_count_label">Số lượng cổng mở:</string>
+    <string name="water_flow_label">Lưu lượng nước:</string>
+    <string name="note_label">Ghi chú:</string>
+
+    <string name="enter_date_hint">Nhập ngày</string>
+    <string name="enter_water_level_7h_hint">Nhập mực nước lúc 7h</string>
+    <string name="enter_water_level_19h_hint">Nhập mực nước lúc 19h</string>
+    <string name="enter_avg_water_level_hint">Nhập mực nước trung bình hôm nay</string>
+    <string name="enter_opened_gate_height_hint">Nhập chiều cao cổng mở</string>
+    <string name="enter_opened_gate_count_hint">Nhập số lượng cổng mở</string>
+    <string name="enter_water_flow_hint">Nhập lưu lượng nước</string>
+    <string name="enter_note_hint">Nhập ghi chú</string>
+
+    <string name="save_button">Lưu</string>
+
+    // Account detail
+    <string name="please_fill_in_require_fields_name_email_password">Vui lòng điền đầy đủ các trường (Tên, Email, Mật khẩu)</string>"
 </resources>

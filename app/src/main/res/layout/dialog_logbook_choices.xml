@@ -10,21 +10,23 @@
         android:id="@+id/autoCompleteLogbook"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Select logbook type"
+        android:hint="@string/select_construction"
         android:padding="12dp"
         android:textSize="16sp"
         android:background="@android:drawable/editbox_background"
+        android:textColor="@color/black"
         android:inputType="text" />
 
     <EditText
         android:id="@+id/edtDatePicker"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Select date"
+        android:hint="@string/select_time"
         android:focusable="false"
         android:clickable="true"
         android:padding="12dp"
         android:textSize="16sp"
+        android:textColor="@color/black"
         android:layout_marginTop="12dp"
         android:background="@android:drawable/editbox_background" />
 
@@ -32,7 +34,7 @@
         android:id="@+id/btnSubmit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Confirm"
+        android:text="@string/confirm"
         android:layout_marginTop="20dp"
         android:backgroundTint="#3F51B5"
         android:textColor="#FFFFFF" />

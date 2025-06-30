@@ -1,28 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    tools:context=".ui.login.MainActivity">
-
+    tools:context=".ui.home.HomePageActivity"
+    android:paddingTop="60dp">
     <View
-        android:id="@+id/top_view"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:background="@drawable/bg_view" />
+    android:id="@+id/top_view"
+    android:layout_width="match_parent"
+    android:layout_height="130dp"
+    android:background="@drawable/bg_view" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:text="HOME"
-        android:textColor="@color/white"
-        android:textSize="36sp" />
 
     <GridLayout
         android:id="@+id/gridLayout"
@@ -35,7 +25,6 @@
         android:columnCount="2"
         android:rowCount="3">
 
-        <!-- CardView 1 -->
         <androidx.cardview.widget.CardView
             android:id="@+id/cvNew"
             android:layout_width="0dp"
@@ -68,15 +57,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="New"
-                    android:textColor="@color/black"
+                    android:text="@string/new_data" android:textColor="@color/black"
                     android:textSize="18sp"
                     android:textStyle="bold" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
-
-        <!-- CardView 2 -->
-
 
         <androidx.cardview.widget.CardView
             android:layout_width="0dp"
@@ -107,14 +92,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="Edit Data"
-                    android:textColor="@color/black"
+                    android:text="@string/edit_data" android:textColor="@color/black"
                     android:textSize="18sp"
                     android:textStyle="bold" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <!-- CardView 3 -->
         <androidx.cardview.widget.CardView
             android:id="@+id/cvMap"
             android:layout_width="0dp"
@@ -145,14 +128,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="Map"
-                    android:textColor="@color/black"
+                    android:text="@string/map" android:textColor="@color/black"
                     android:textSize="18sp"
                     android:textStyle="bold" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <!-- CardView 4 -->
         <androidx.cardview.widget.CardView
             android:id="@+id/cvStatistic"
             android:layout_width="0dp"
@@ -184,14 +165,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="Statistic"
-                    android:textColor="@color/black"
+                    android:text="@string/statistic" android:textColor="@color/black"
                     android:textSize="18sp"
                     android:textStyle="bold" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <!-- CardView 5 -->
         <androidx.cardview.widget.CardView
             android:id="@+id/cvExportData"
             android:layout_width="0dp"
@@ -222,14 +201,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="Export Data"
-                    android:textColor="@color/black"
+                    android:text="@string/export_data" android:textColor="@color/black"
                     android:textSize="18sp"
                     android:textStyle="bold" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <!-- CardView 6 -->
         <androidx.cardview.widget.CardView
             android:id="@+id/cvAccount"
             android:layout_width="0dp"
@@ -260,8 +237,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="Account"
-                    android:textColor="@color/black"
+                    android:text="@string/account" android:textColor="@color/black"
                     android:textSize="18sp"
                     android:textStyle="bold" />
             </LinearLayout>

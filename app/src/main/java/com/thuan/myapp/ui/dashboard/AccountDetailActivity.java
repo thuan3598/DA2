@@ -1,5 +1,6 @@
 package com.thuan.myapp.ui.dashboard;
 
+import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -22,7 +23,9 @@ import com.thuan.myapp.data.datasource.DAO.AccountDAO;
 import com.thuan.myapp.data.datasource.Impl.AccountDAOImpl;
 import com.thuan.myapp.data.model.Account;
 
-public class AccountDetailActivity extends AppCompatActivity {
+import java.util.Calendar;
+
+public class AccountDetailActivity extends BaseActivity {
 
     Boolean isEdit = false;
     EditText edtName, edtEmail, edtPassword, edtPhone, edtAddress, edtDob;
@@ -42,6 +45,10 @@ public class AccountDetailActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        if (tvHeaderTitle != null) {
+            tvHeaderTitle.setText(R.string.detail_account);
+        }
+
         edtName = findViewById(R.id.edtName);
         edtEmail = findViewById(R.id.edtEmail);
         edtPassword = findViewById(R.id.edtPassword);
@@ -51,6 +58,22 @@ public class AccountDetailActivity extends AppCompatActivity {
         acGender = findViewById(R.id.acGender);
         acRole = findViewById(R.id.acRole);
         btnSave = findViewById(R.id.btnSave);
+
+        edtDob.setOnClickListener(v -> {
+            Calendar calendar = Calendar.getInstance();
+            int year = calendar.get(Calendar.YEAR);
+            int month = calendar.get(Calendar.MONTH);
+            int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+            DatePickerDialog datePickerDialog = new DatePickerDialog(
+                    AccountDetailActivity.this,
+                    (view1, selectedYear, selectedMonth, selectedDay) -> {
+                        String selectedDate = selectedDay + "/" + (selectedMonth + 1) + "/" + selectedYear;
+                        edtDob.setText(selectedDate);
+                    },
+                    year, month, day);
+            datePickerDialog.show();
+        });
 
         // Khởi tạo DAO
         accountDAO = new AccountDAOImpl();
@@ -66,7 +89,7 @@ public class AccountDetailActivity extends AppCompatActivity {
             }
         });
 //        getSupportActionBar().setTitle(isEdit ? "Edit Account" : "Create Account");
-        getSupportActionBar().hide();
+
         InitAccountData();
     }
 
@@ -131,7 +154,7 @@ public class AccountDetailActivity extends AppCompatActivity {
 
     private void InitAccountData() {
         // Dữ liệu cho giới tính
-        String[] genders = new String[]{"male", "female"};
+        String[] genders = new String[]{getString(R.string.male), getString(R.string.female)};
         ArrayAdapter<String> genderAdapter = new ArrayAdapter<>(
                 this,
                 android.R.layout.simple_dropdown_item_1line,
@@ -167,8 +190,8 @@ public class AccountDetailActivity extends AppCompatActivity {
             edtPhone.setText(account.getPhoneNumber());
             edtAddress.setText(account.getAddress());
             edtDob.setText(account.getDob());
-//            edtGender.setText(account.getGender());
-//            edtRole.setText(account.getRole());
+            acGender.setText(account.getGender());
+            acRole.setText(account.getRole());
         }
         else{
             btnSave.setText("Create");

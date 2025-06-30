@@ -5,10 +5,13 @@ import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -42,7 +45,7 @@ import com.thuan.myapp.ui.home.HomePageActivity;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AccountActivity extends AppCompatActivity {
+public class AccountActivity extends BaseActivity {
 
     private RecyclerView recvAccount;
     private AccountAdapter accountAdapter;
@@ -50,6 +53,7 @@ public class AccountActivity extends AppCompatActivity {
     private List<Account> listAccount;
     private AccountDAO accountDAO;
     private ActivityResultLauncher<Intent> accountDetailLauncher;
+    private EditText edtSearch;
 
     FloatingActionButton btnAdd;
 
@@ -63,14 +67,18 @@ public class AccountActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        if (tvHeaderTitle != null) {
+            tvHeaderTitle.setText(R.string.account);
+        }
 
-        getSupportActionBar().setTitle("All Accounts");
+//        getSupportActionBar().setTitle("All Accounts");
 
         // Khởi tạo RecyclerView và Adapter
         recvAccount = findViewById(R.id.recvAccount);
         btnAdd = findViewById(R.id.btnAdd);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recvAccount.setLayoutManager(linearLayoutManager);
+        edtSearch = findViewById(R.id.edtSearch);
 
         // Khởi tạo listAccount và adapter với callback click
         listAccount = new ArrayList<>();
@@ -109,6 +117,19 @@ public class AccountActivity extends AppCompatActivity {
                 accountDetailLauncher.launch(intent);
             }
         });
+
+        edtSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                accountAdapter.getFilter().filter(s.toString());  // Gọi filter mỗi khi người dùng gõ
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {}
+        });
     }
 
     private void loadAccounts() {
@@ -129,26 +150,26 @@ public class AccountActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main_menu, menu);
-
-        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-        searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
-        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
-        searchView.setMaxWidth(Integer.MAX_VALUE);
-
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                accountAdapter.getFilter().filter(query);
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                accountAdapter.getFilter().filter(newText);
-                return false;
-            }
-        });
+//        getMenuInflater().inflate(R.menu.main_menu, menu);
+//
+//        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+//        searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
+//        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+//        searchView.setMaxWidth(Integer.MAX_VALUE);
+//
+//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+//            @Override
+//            public boolean onQueryTextSubmit(String query) {
+//                accountAdapter.getFilter().filter(query);
+//                return false;
+//            }
+//
+//            @Override
+//            public boolean onQueryTextChange(String newText) {
+//                accountAdapter.getFilter().filter(newText);
+//                return false;
+//            }
+//        });
         return true;
     }
 }

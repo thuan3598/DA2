@@ -8,6 +8,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.thuan.myapp.data.datasource.Callback.ConstructionLoadCallback;
 import com.thuan.myapp.data.datasource.Callback.DailyWaterLevelLoadCallback;
@@ -16,6 +17,7 @@ import com.thuan.myapp.data.model.Construction;
 import com.thuan.myapp.data.model.DailyWaterLevel;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 public class DailyWaterLevelDAOImpl implements DailyWaterLevelDAO {
@@ -36,7 +38,7 @@ public class DailyWaterLevelDAOImpl implements DailyWaterLevelDAO {
                     if (dailyWaterLevel != null) {
                         dailyWaterLevel.setId(child.getKey()); // Gán key của node làm ID
                         list.add(dailyWaterLevel);
-                        Log.d("DailyWaterLevelDAO", dailyWaterLevel.toString());
+
                     }
                 }
                 callback.onDailyWaterLevelsLoaded(list);
@@ -48,4 +50,31 @@ public class DailyWaterLevelDAOImpl implements DailyWaterLevelDAO {
             }
         });
     }
+
+    public void loadDailyWaterLevelById(String id, DailyWaterLevelLoadCallback callback){
+        List<DailyWaterLevel> list = new ArrayList<>();
+        Query query = dailyWaterLevelsRef.orderByChild("constructionId").equalTo(id);
+
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot child : snapshot.getChildren()) {
+                    DailyWaterLevel dailyWaterLevel = child.getValue(DailyWaterLevel.class);
+                    if (dailyWaterLevel != null) {
+                        dailyWaterLevel.setId(child.getKey()); // Gán key của node làm ID
+                        list.add(dailyWaterLevel);
+
+                    }
+                }
+                callback.onDailyWaterLevelsLoaded(list);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                callback.onError("Failed to load: " + error.getMessage());
+            }
+        });
+    }
+
+
 }

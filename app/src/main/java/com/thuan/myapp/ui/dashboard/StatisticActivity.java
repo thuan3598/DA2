@@ -40,7 +40,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
-public class StatisticActivity extends AppCompatActivity {
+public class StatisticActivity extends BaseActivity {
 
     AutoCompleteTextView autoConstruction;
     EditText edtStartDate;
@@ -71,6 +71,11 @@ public class StatisticActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        if (tvHeaderTitle != null) {
+            tvHeaderTitle.setText(R.string.statistic);
+        }
+
+
         autoConstruction = findViewById(R.id.AutoConstruction);
         edtEndDate = findViewById(R.id.edtEndDate);
         edtStartDate = findViewById(R.id.edtStartDate);
@@ -309,11 +314,8 @@ public class StatisticActivity extends AppCompatActivity {
         double sum = 0;
         int count = 0;
 
-        if (level.getWaterLevel7hHl() != null) { sum += level.getWaterLevel7hHl(); count++; }
-        if (level.getWaterLevel19hHl() != null) { sum += level.getWaterLevel19hHl(); count++; }
-        if (level.getWaterLevel7hTl() != null) { sum += level.getWaterLevel7hTl(); count++; }
-        if (level.getWaterLevel19hTl() != null) { sum += level.getWaterLevel19hTl(); count++; }
-
+        if (level.getWaterLevel7h() != null) { sum += level.getWaterLevel7h(); count++; }
+        if (level.getWaterLevel19h() != null) { sum += level.getWaterLevel19h(); count++; }
         return count > 0 ? sum / count : 0;
     }
 
@@ -330,10 +332,8 @@ public class StatisticActivity extends AppCompatActivity {
         List<Double> maxValues = new ArrayList<>();
         for (DailyWaterLevel level : levels) {
             double max = Double.MIN_VALUE;
-            if (level.getWaterLevel7hHl() != null) max = Math.max(max, level.getWaterLevel7hHl());
-            if (level.getWaterLevel19hHl() != null) max = Math.max(max, level.getWaterLevel19hHl());
-            if (level.getWaterLevel7hTl() != null) max = Math.max(max, level.getWaterLevel7hTl());
-            if (level.getWaterLevel19hTl() != null) max = Math.max(max, level.getWaterLevel19hTl());
+            if (level.getWaterLevel7h() != null) max = Math.max(max, level.getWaterLevel7h());
+            if (level.getWaterLevel19h() != null) max = Math.max(max, level.getWaterLevel19h());
             maxValues.add(max);
         }
         return maxValues;
@@ -343,10 +343,8 @@ public class StatisticActivity extends AppCompatActivity {
         List<Double> minValues = new ArrayList<>();
         for (DailyWaterLevel level : levels) {
             double min = Double.MAX_VALUE;
-            if (level.getWaterLevel7hHl() != null) min = Math.min(min, level.getWaterLevel7hHl());
-            if (level.getWaterLevel19hHl() != null) min = Math.min(min, level.getWaterLevel19hHl());
-            if (level.getWaterLevel7hTl() != null) min = Math.min(min, level.getWaterLevel7hTl());
-            if (level.getWaterLevel19hTl() != null) min = Math.min(min, level.getWaterLevel19hTl());
+            if (level.getWaterLevel7h() != null) min = Math.min(min, level.getWaterLevel7h());
+            if (level.getWaterLevel19h() != null) min = Math.min(min, level.getWaterLevel19h());
             minValues.add(min);
         }
         return minValues;
